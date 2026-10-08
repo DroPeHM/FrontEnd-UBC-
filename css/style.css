@@ -1,0 +1,248 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bg-pr-color: #4B5320;
+    --cards: #A9A77A;
+    --surface: #232323;
+    --boards: #301f12;
+    --highlight: #E50914;
+    --text-color: #1C1C18;
+    --text-sec-color: #B9B9B9;
+    --text-desatived: #737373;
+    --hover: #6B7048;
+    --button: #C9A227;
+}
+html, body{
+    height: 100vh;
+    width: 98.5vw;
+    font-family: "Bebas Neue", sans-serif;
+    background-color: var(--bg-pr-color);
+    display: flex;
+    flex-direction: column;
+}
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+main{
+    display: flex;
+    align-items: center;
+}
+h1{
+    font-size: 70px;
+    color: var(--text-color);
+    margin: 20px 0px 10px 0;
+}
+h2{
+    color: var(--text-sec-color);
+    font-family: "Ubuntu Condensed", sans-serif;
+    font-size: 16px;
+    margin: 0 30px 0 30px;
+}
+/*---------------------------------------- Primeira Página --------------------------------*/
+.loading{
+    display: flex;
+    margin: 150px 0 500px 0;
+    justify-content: center;
+}
+.logo{
+    padding: auto;
+    height: 300px;
+    width: 1200px;   
+}
+.destaque{
+    color: var(--boards);
+}
+.home-page{ /*texto de apresentação*/
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    color: var(--text-color);
+    width: 625.5px;
+    height: 636px;
+    background-image: url("../img/camuflagem.svg");
+    background-size: cover;      /* cobre toda a tela, sem distorcer */ /* centraliza a imagem */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* opcional: fundo fica fixo ao rolar a página */
+}
+.home-page h1, h2{
+    padding: 0px 10px 0 10px;
+    text-shadow: 2px 2px 4px rgba(99, 107, 47, 0.7),
+             4px 4px 8px rgba(99, 107, 47, 0.7),
+            -2px -2px 4px rgb(99, 107, 47, 0.7),
+            -4px -4px 8px rgb(99, 107, 47, 0.7);
+}
+.logo-line{ /*linha marrom no loading'*/
+    padding: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    background-color:var(--boards);
+    box-shadow: 10px 10px 10px 10px rgb(35, 35, 35, 0.20),
+                20px 20px 20px 20px rgb(35, 35, 35, 0.20),
+                -10px -10px 10px 10px rgb(35, 35, 35, 0.20),
+                -20px -20px 20px 20px rgb(35, 35, 35, 0.20);
+}
+.header-line{ /* linha marrom em cima da home*/
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    height: 50px;
+    width: 100%;
+    background-color:var(--boards);
+    box-shadow: 10px 10px 10px 10px rgb(35, 35, 35, 0.20),
+                20px 20px 20px 20px rgb(35, 35, 35, 0.20),
+                -10px -10px 10px 10px rgb(35, 35, 35, 0.20),
+                -20px -20px 20px 20px rgb(35, 35, 35, 0.20);
+}
+.header-line img{
+    height: 50px;
+    width: 100px;
+}
+.search-bar {
+    display: flex;
+    width: 400px;
+    height: 30px;
+    margin: 10px 60px;
+    border: 0;
+    border-radius: 16px;
+    background-color: var(--surface);
+    cursor: pointer;
+}
+.search-bar:hover{
+    background-color: var(--hover);
+}
+.search-bar p {
+    font-family: "Sansation", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--text-desatived);
+    justify-content: left;
+    align-items: center;
+    padding: 6px;
+    margin-left: 10px;
+}
+.botoes-grid {
+    display: flex;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas de tamanho igual */
+    gap: 10px; /* espaço entre os botões */
+    width: 604px;
+    align-items: center;      /* centraliza dentro de cada célula */
+    justify-content: center;  /* mantém as colunas centralizadas */
+}
+
+.botoes-grid button {
+    flex-direction: row;
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--text-desatived);
+    border-radius: 10px;
+    border-style: hidden;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 293px;
+    height: 56px;
+}
+.botoes-grid button:hover {
+    background-color: var(--hover);
+    color: var(--text-color)
+}
+/*---------------------------------------------Segunda Página-----------------------------------------*/
+.formulario{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto ;
+    background-color: var(--cards);
+    justify-content: center;
+    width: 50rem;
+    height: 40rem;
+    font-size: 30px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 800px;
+    padding: 50px;
+}
+input{
+    border: none;
+    border-radius: 7px;
+    width: 250px;
+    height: 40px;
+    padding: 10px;
+    font-family: "Roboto Condesed", sans-serif;
+    font-size: 18px;
+    
+}
+input:focus{
+    border-radius: 7px;
+    height: 40px;
+    outline:none;
+    border-color: var(--button);
+    border-style:solid;
+}
+label{
+    line-height: 1;
+    padding-top: 0px;
+}
+
+.nomes{
+    display: flex;
+    gap: 24px;
+    vertical-align: baseline;
+}
+.identity{
+    gap: 24px;
+    width: 310px;
+    margin-bottom: 50px;
+}
+.nome{
+    width: 303px;
+}
+.sobrenome{
+    width:303px;
+}
+.aniversario{
+    display: flex;
+    margin-bottom: 50px;    
+}
+.email{
+    display: flex;
+    margin-bottom: 50px;
+    margin-right: 12px;
+}
+.telephone{
+    display: flex;
+    margin-bottom: 50px;
+}
+.cep{
+    display: flex;
+    margin-bottom: 50px;
+}.cpf-cnpj{
+    padding: 10px;
+    margin-bottom: 50px;
+}
+label, input{
+    vertical-align: middle;
+    cursor: pointer;    
+}
+select{
+    border: none;
+    border-radius: 7px;
+    height: 35px;
+}
+option{
+    margin-left: 7px;
+}
+

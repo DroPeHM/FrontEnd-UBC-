@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Farda Nova</title>
+</head>
+<body>
+    <header>
+        <div class="header-line">
+            <img class="logo" src="../img/fardanovalogo.svg" alt="Farda Nova">
+
+        </div>
+    </header>
+    <main>
+        <div class="formulario">
+            <form>
+                <div class=" nomes">
+                    <div class="identity">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome">
+                    </div>
+                    <div class="identity">
+                        <label for="sobrenome">Sobrenome:</label>
+                        <input type="text" id="sobrenome"> 
+                    </div>
+                </div>
+                <div class="aniversario">
+                    <label for="aniversario">Data de nasc. :</label>
+                    <input type="date" id="aniversario">
+                </div>
+                <div class="email-cpf">    
+                    <div class="email">
+                        <label for="email">Email: </label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="cpf-cnpj">
+                        <label for="cpf">Documento: </label>
+                        <select id="tipo">
+                            <option value="CPF">CPF</option>
+                            <option value="CPF">CNPJ</option>
+                        </select>
+                        <label for="documento"></label>
+                        <input type="text" id="documento-cpf" placeholder="Digite o CPF" maxlength="14">
+                    </div>
+                </div>
+                <div class="telephone">
+                    <label for="telephone">Telefone: </label>
+                    <input type="tel" id="telephone"   placeholder="(xx) xxxxx-xxxx"pattern="\(\d{2}\) \d{5}-\d{4}"
+                required/>
+                </div>
+                <div class="cep">
+                    <label for="CEP">CEP: </label>
+                    <input type="text" id="cep" inputmode="numeric" maxlength="9" placeholder="00000-000">
+                </div>
+            </form>
+        </div>
+
+    </main>
+</body>
+
