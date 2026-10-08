@@ -5,27 +5,35 @@ document.querySelector("#LogIn").addEventListener("click", () => {
   window.location.href = "logIn.html";
 });
 
+// LOCAL STORAGE
 const nome = document.querySelector("#nome");
 const sobrenome = document.querySelector("#sobrenome");
 const email = document.querySelector("#email");
+const passkey = document.querySelector("#passkey")
 const telephone = document.querySelector("#telephone");
 const tipo = document.querySelector("#tipo");
 const documento = document.querySelector("#documento");
-
 const data = document.querySelector("#data").value;
-const [ano, mes, dia] = data.split("-");
+const [dia, mes, ano] = data.split("-");
 console.log(`${dia}/${mes}/${ano}`);
 
+nome.value = localStorage.getItem("nome");
+sobrenome.value = localStorage.getItem("sobrenome");
+data_nasc.value = localStorage.getItem("aniversario");
+telephone.value = localStorage.getItem("telephone");
+email.value = localStorage.getItem("email");
+passkey.value = localStorage.getItem("passkey");
+
+//CONFIRMAR MUDA A PÁGINA
+document.querySelector("#confirmation").addEventListener("click", () => {
+window.location.href = "password.html";});
+
+//CONFIRMAR SALVA DADOS
 formulario.addEventListener("submit", function(event){
   event.preventDefault();
   localStorage.setItem("dadosUsuario", JSON.stringify(dados));
   alert("Dados salvos!");
 });
-
-document.querySelector("#confirm").addEventListener("click", () => {
-  window.location.href = "password.html";
-});
-
 
 
   tipo.addEventListener("change", () => {
@@ -38,19 +46,3 @@ document.querySelector("#confirm").addEventListener("click", () => {
   });
   
 
-nome.value = localStorage.getItem("nome");
-sobrenome.value = localStorage.getItem("sobrenome");
-data_nasc.value = localStorage.getItem("aniversario");
-telephone.value = localStorage.getItem("telephone");
-
-/*Botão de ver a senha*/ 
-const senha = document.querySelector("#passkey");
-const confirmation = document.querySelector("#confirmation");
-const checkbox = document.querySelector("#verSenha");
-
-botao.addEventListener("click", () => {
-  const visivel = senha.type === "text";
-
-  senha.type = visivel ? "text" : "password";
-  confirmation.type = visivel ? "text" : "password";
-});
