@@ -21,43 +21,46 @@
                 <div class=" nomes">
                     <div class="identity">
                         <label for="nome">Nome:</label>
-                        <input type="text" id="nome">
+                        <input type="text" id="nome" minlength="2" required>
                     </div>
                     <div class="identity">
                         <label for="sobrenome">Sobrenome:</label>
-                        <input type="text" id="sobrenome"> 
+                        <input type="text" id="sobrenome" minlength="5" required> 
                     </div>
                 </div>
                 <div class="aniversario">
                     <label for="aniversario">Data de nasc. :</label>
-                    <input type="date" id="aniversario" >
+                    <input type="date" id="aniversario" required>
                 </div>
                 <div class="email-cpf">    
                     <div class="email">
                         <label for="email">Email: </label>
-                        <input type="email" id="email" placeholder="example.user@gmail.com">
+                        <input type="email" id="email" placeholder="example.user@gmail.com" required>
                     </div>
                     <div class="cpf-cnpj">
                         <label for="tipo">Documento: </label>
-                        <select id="tipo">
+                        <select id="tipo" onchange="mudarPlaceholder()">
+                            <option value="">-- Selecione --</option>
                             <option value="CPF">CPF</option>
-                            <option value="CPF">CNPJ</option>
+                            <option value="CNPJ">CNPJ</option>
                         </select>
-                        <input type="text" id="documento-cpf" placeholder="Digite o CPF" maxlength="14">
+                        <input type="text" id="documento" maxlength="14" placeholder="Escolha uma opção"inputmode="numeric" disabled required>
+                        
                     </div>
                 </div>
                 <div class="telephone">
                     <label for="telephone">Telefone: </label>
-                    <input type="tel" id="telephone"   placeholder="(xx) xxxxx-xxxx"pattern="\(\d{2}\) \d{5}-\d{4}"
+                    <input type="tel" id="telephone" placeholder="(xx) xxxxx-xxxx"pattern="\(\d{2}\) \d{5}-\d{4}"
                 required/>
                 </div>
                 <div class="buttons-final">
-                    <button class="delete" onclick="window.location.href='index.html'">Excluir</button>
-                    <button type="submit" class="confirm" onclick="window.location.href='password.html'">Confirmar</button>
-                    </div>
+                    <button class="delete" onclick="window.location.href='index.html'"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x preview-icon"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Cancelar</button>
+                    <button type="submit" class="confirm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right preview-icon"><path d="m9 18 6-6-6-6"/></svg>Avançar</button>
                 </div>
             </form>
         </div>
     </main>
+    <script src="../js/aesthetic.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 

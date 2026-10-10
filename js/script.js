@@ -19,30 +19,60 @@ console.log(`${dia}/${mes}/${ano}`);
 
 nome.value = localStorage.getItem("nome");
 sobrenome.value = localStorage.getItem("sobrenome");
-data_nasc.value = localStorage.getItem("aniversario");
+data.value = localStorage.getItem("aniversario");
 telephone.value = localStorage.getItem("telephone");
 email.value = localStorage.getItem("email");
 passkey.value = localStorage.getItem("passkey");
 
-//CONFIRMAR MUDA A PÁGINA
-document.querySelector("#confirmation").addEventListener("click", () => {
-window.location.href = "password.html";});
 
-//CONFIRMAR SALVA DADOS
-formulario.addEventListener("submit", function(event){
-  event.preventDefault();
-  localStorage.setItem("dadosUsuario", JSON.stringify(dados));
-  alert("Dados salvos!");
-});
+//CONFIRMA MUDA HTML E SALVA OS DADOS NO LOCAL STORAGE
+document.getElementById("formulario").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-
-  tipo.addEventListener("change", () => {
-    const ehCpf = tipo.value === "cpf";
-    documento.placeholder = ehCpf
-      ? "Digite o CPF"
-      : "Digite o CNPJ";
-    documento.maxLength = ehCpf ? 14 : 18;
-    documento.value = "";
+    const dados = {
+      nome: document.getElementById("nome").value,
+      data: document.getElementById("data").value
+    };
+    localStorage.setItem("dadosUsuario", JSON.stringify(dados));
+    window.location.href = "home.html";
   });
-  
+
+form.addEventListener("submit", (event) => {
+  if (nome.value.trim() === "") {
+    event.preventDefault();
+    alert("Preencha o nome.");
+  }
+  if (sobrenome.value.trim() === "") {
+    event.preventDefault();
+    alert("Preencha o sobrenome.");
+  }
+  if (email.value.trim() === "") {
+    event.preventDefault();
+    alert("Preencha o email.");
+  }
+  if (telephone.value.trim() === "") {
+    event.preventDefault();
+    alert("Preencha o Telefone.");
+  }
+  if (tipo.value.trim() === "") {
+    event.preventDefault();
+    alert("Escolha um tipo de documento.");
+  }
+  if (documento.value.trim() === "") {
+    event.preventDefault();
+    alert("Preencha o documento.");
+  }
+  if (data.value.trim() === "") {
+    event.preventDefault();
+    alert("Preencha o documento.");
+  }
+  if (passkey.value.trim() === "") {
+    event.preventDefault();
+    alert("Preencha o documento.");
+  }
+  if (documento.value.trim() === "") {
+    event.preventDefault();
+    alert("Preencha o documento.");
+  }
+});
 
