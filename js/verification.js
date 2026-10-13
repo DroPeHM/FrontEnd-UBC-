@@ -1,34 +1,18 @@
-//botão para mostrar a senha
 const senha = document.querySelector("#senha");
 const confirmacao = document.querySelector("#confirmation");
 const botao = document.querySelector("#verSenha");
-const icone = document.querySelector("#iconeSenha")
-botao.addEventListener("click", () => {
-  const oculto = senha.type === "password";
-  const tipo = oculto ? "text" : "password";
+const icone = document.querySelector("#iconeSenha");
 
-  senha.type = tipo;
-  confirmacao.type = tipo;
+if (botao && senha && confirmacao) {
+  botao.addEventListener("click", () => {
+    const mostrar = senha.type === "password";
 
-  if (oculto) {
-    icone.src = "../img/eye.svg";
-    icone.alt = "Ocultar senha";
-  } else {
-    icone.src = "../img/eye-closed.svg";
-    icone.alt = "Mostrar senha";
-  }
-});
+    senha.type = mostrar ? "text" : "password";
+    confirmacao.type = mostrar ? "text" : "password";
 
-//VERIFICADOR DE IGUALDADE DAS SENHAS
-const formulario = document.querySelector("#formSenha");
-
-formulario.addEventListener("submit", (event) => {
-  if (senha.value !== confirmacao.value) {
-    event.preventDefault();
-    alert("As senhas não coincidem.");
-    confirmacao.focus();
-    return;
-  }
-
-  window.location.href = "home.html";
-});
+    if (icone) {
+      icone.src = mostrar ? "../img/eye.svg" : "../img/eye-closed.svg";
+      icone.alt = mostrar ? "Ocultar senha" : "Mostrar senha";
+    }
+  });
+}

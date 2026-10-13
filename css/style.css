@@ -676,3 +676,28 @@ select{
     background-color: red ;
     color: white;
 }
+.backButton{
+    display: flex;
+    background-color: var(--highlight);
+    padding: 5px;
+    margin-top: 25px;
+    align-items: center;
+    justify-self: right;
+    justify-content: center;
+    height: 50px;
+    width: 110px;
+    border-radius: 7px;
+    border: none;
+    font-size: 18px;
+    font-family: "Ubuntu Condensed", sans-serif;
+    color: var(--text-desatived);
+    font-weight: bold;
+    transition: 400ms;
+
+}
+.backButton:hover{
+    transform: scale(1.1);
+    transition: 400ms;
+    background-color: var(--highlight);
+    color: white;
+}

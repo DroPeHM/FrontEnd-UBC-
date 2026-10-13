@@ -17,7 +17,7 @@
     </header>
     <main>
         <div class="formulario">
-            <form>
+            <form id="formulario">
                 <div class=" nomes">
                     <div class="identity">
                         <label for="nome">Nome:</label>
@@ -44,13 +44,12 @@
                             <option value="CPF">CPF</option>
                             <option value="CNPJ">CNPJ</option>
                         </select>
-                        <input type="text" id="documento" maxlength="14" placeholder="Escolha uma opção"inputmode="numeric" disabled required>
-                        
+                        <input type="text" id="documento" placeholder="Escolha uma opção"inputmode="numeric" disabled required>
                     </div>
                 </div>
                 <div class="telephone">
                     <label for="telephone">Telefone: </label>
-                    <input type="tel" id="telephone" placeholder="(xx) xxxxx-xxxx"pattern="\(\d{2}\) \d{5}-\d{4}"
+                    <input type="tel" id="telephone" placeholder="xx xxxxx xxxx"
                 required/>
                 </div>
                 <div class="buttons-final">
@@ -63,4 +62,4 @@
     <script src="../js/aesthetic.js"></script>
     <script src="../js/script.js"></script>
 </body>
-
+</html>

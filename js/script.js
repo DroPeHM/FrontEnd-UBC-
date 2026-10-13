@@ -1,78 +1,99 @@
-document.querySelector("#SignUp").addEventListener("click", () => {
+const signUp = document.querySelector("#SignUp");
+const logIn = document.querySelector("#LogIn");
+
+if (signUp) signUp.addEventListener("click", () => {
   window.location.href = "signUp.html";
 });
-document.querySelector("#LogIn").addEventListener("click", () => {
+
+if (logIn) logIn.addEventListener("click", () => {
   window.location.href = "logIn.html";
 });
 
-// LOCAL STORAGE
-const nome = document.querySelector("#nome");
-const sobrenome = document.querySelector("#sobrenome");
-const email = document.querySelector("#email");
-const passkey = document.querySelector("#passkey")
-const telephone = document.querySelector("#telephone");
-const tipo = document.querySelector("#tipo");
-const documento = document.querySelector("#documento");
-const data = document.querySelector("#data").value;
-const [dia, mes, ano] = data.split("-");
-console.log(`${dia}/${mes}/${ano}`);
+const formulario = document.querySelector("#formulario");
 
-nome.value = localStorage.getItem("nome");
-sobrenome.value = localStorage.getItem("sobrenome");
-data.value = localStorage.getItem("aniversario");
-telephone.value = localStorage.getItem("telephone");
-email.value = localStorage.getItem("email");
-passkey.value = localStorage.getItem("passkey");
+if (formulario) {
+  const campos = ["nome", "sobrenome", "aniversario", "email", "telephone", "tipo", "documento"];
 
-
-//CONFIRMA MUDA HTML E SALVA OS DADOS NO LOCAL STORAGE
-document.getElementById("formulario").addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const dados = {
-      nome: document.getElementById("nome").value,
-      data: document.getElementById("data").value
-    };
-    localStorage.setItem("dadosUsuario", JSON.stringify(dados));
-    window.location.href = "home.html";
+  campos.forEach((id) => {
+    const campo = document.getElementById(id);
+    const valor = localStorage.getItem(id);
+    if (campo && valor !== null) campo.value = valor;
   });
 
-form.addEventListener("submit", (event) => {
-  if (nome.value.trim() === "") {
-    event.preventDefault();
-    alert("Preencha o nome.");
-  }
-  if (sobrenome.value.trim() === "") {
-    event.preventDefault();
-    alert("Preencha o sobrenome.");
-  }
-  if (email.value.trim() === "") {
-    event.preventDefault();
-    alert("Preencha o email.");
-  }
-  if (telephone.value.trim() === "") {
-    event.preventDefault();
-    alert("Preencha o Telefone.");
-  }
-  if (tipo.value.trim() === "") {
-    event.preventDefault();
-    alert("Escolha um tipo de documento.");
-  }
-  if (documento.value.trim() === "") {
-    event.preventDefault();
-    alert("Preencha o documento.");
-  }
-  if (data.value.trim() === "") {
-    event.preventDefault();
-    alert("Preencha o documento.");
-  }
-  if (passkey.value.trim() === "") {
-    event.preventDefault();
-    alert("Preencha o documento.");
-  }
-  if (documento.value.trim() === "") {
-    event.preventDefault();
-    alert("Preencha o documento.");
-  }
-});
+  if (typeof mudarPlaceholder === "function") mudarPlaceholder();
 
+  formulario.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!formulario.checkValidity()) {
+      formulario.reportValidity();
+      return;
+    }
+
+    const dadosUsuario = {};
+    campos.forEach((id) => {
+      const campo = document.getElementById(id);
+      if (campo) {
+        localStorage.setItem(id, campo.value);
+        dadosUsuario[id] = campo.value;
+      }
+    });
+
+    localStorage.setItem("dadosUsuario", JSON.stringify(dadosUsuario));
+
+    window.location.href = "password.html";
+  });
+}
+
+const formSenha = document.querySelector("#formSenha");
+
+if (formSenha) {
+  formSenha.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const campoSenha = document.getElementById("senha");
+    const campoConfirmacao = document.getElementById("confirmation");
+
+    campoSenha.disabled = false;
+    campoConfirmacao.disabled = false;
+
+    const senha = campoSenha.value;
+    const confirmacao = campoConfirmacao.value;
+
+    if (senha !== confirmacao) {
+      alert("As senhas não são iguais.");
+      campoConfirmacao.value = "";
+      campoConfirmacao.focus();
+      return;
+    }
+
+    const dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario"));
+
+    if (!dadosUsuario || !dadosUsuario.email) {
+      alert("Dados do cadastro não encontrados. Volte ao cadastro.");
+      campoSenha.focus();
+      return;
+    }
+
+    const usuario = {
+      ...dadosUsuario,
+      senha: senha
+    };
+
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    const emailExiste = usuarios.some((item) => item.email === usuario.email);
+
+    if (emailExiste) {
+      alert("Este e-mail já está cadastrado.");
+      campoSenha.focus();
+      return;
+    }
+
+    usuarios.push(usuario);
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+    alert("Cadastro realizado com sucesso!");
+    window.location.href = "logIn.html";
+  });
+}

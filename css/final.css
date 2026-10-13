@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bg-pr-color: #4B5320;
+    --cards: #A9A77A;
+    --surface: #232323;
+    --boards: #301f12;
+    --highlight: #E50914;
+    --text-color: #1C1C18;
+    --text-sec-color: #B9B9B9;
+    --text-desatived: #737373;
+    --hover: #6B7048;
+    --button: #C9A227;
+}
+html, body{
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-pr-color);
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent
+}
+header{
+    display: flex;
+    padding: 5px;
+    background-color: var(--boards);
+    height: 2.5rem;
+    width: 100%;
+}
+header img{
+    align-items: center;
+    justify-content: left;
+    width: 70px;
+    height: auto;
+}
+header button{
+    display: flex;
+    background-color: var(--boards);
+    border: none;
+    border-radius: 3px;
+    color: var(--button);
+    margin-left: auto;
+    margin-right: 50px;
+    align-items: center;
+    transition: 400ms;
+}
+header button:hover{
+    transform: scale(1.4);
+    transition: 400ms;
+    background-color: var(--hover);
+}
+header button:active{
+    transition: none;
+    background-color: var(--bg-pr-color);
+    color: white;
+}
+main{
+    display: flex;
+    background-color: var(--cards);
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+}
+img{
+    height:auto
+}
+h1{
+    font-family: "Black Ops One", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 40px;
+}
+h3{
+    color:var(--text-sec-color);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+ul,p{
+    padding: 20px;
+    color: var(--text-sec-color);
+}
+li{
+    margin-bottom: 7px;
+}
+footer{
+    padding: 100px;
+    background-color: var(--surface);
+    height: 300px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+    scrollbar-track-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+.alunos{
+    display: flex;
+}
+.rgms{
+    margin-left: 200px;
+}
+.barra-lateral {
+  position: fixed;
+  font-family: "Roboto condensed", sans-serif  ;
+  bottom: 15;
+  right: 0;
+  width: 300px;
+  height: 90vh;
+  padding: 20px;
+  background-color: var(--cards);
+  border-color:var(--boards);
+  border-radius: 7px;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+  ;
+
+  /* Fica escondida fora da tela */
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+/* Quando recebe esta classe, aparece */
+.barra-lateral.aberta {
+  transform: translateX(0);
+}
+
+.fechar {
+  float: right;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.barra-lateral ul{
+    color: var(--text-color);
+}
+.logout{
+    margin-top: 400px;
+}
+.logout, #sair{
+    color: var(--highlight);
+}
+#sair:hover{
+    padding: 5px;
+    transform: scale(1.1);
+    transition: 400ms;
+    border-radius: 7px;
+    background-color: var(--highlight);
+    color: white;
+}
+label,button{
+    cursor: pointer;
+    vertical-align: middle;
+}
+button{
+    font-size: 18px;
+    margin-left: 20px;
+    background-color: var(--cards);
+    border: none;
+    
+}

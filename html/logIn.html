@@ -27,24 +27,26 @@
     </div>
     <div class="botoes-grid2">
         <button id="SignUp"><a>CRIAR CONTA</a></button>
-        <button id="SignUp"><a>CRIAR CONTA</a></button>
     </div>
     <div class="join-block">
         <div>
-            <form>
+            <form id="formLogin">
                 <div class="email">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" placeholder="example.user@gmail.com">
+                    <input type="email" id="emailLogin" placeholder="example.user@gmail.com" required>
                 </div>
                 <div class="password">
                     <label for="password">Senha:</label>
-                    <input type="password" id="password">
+                    <input type="password" id="senhaLogin" required>
                 </div>
                 <div class="join-button">
                     <button type="submit" class="login-button">Entrar</button>
+                    <button type="reset" onclick= "window.location.href='index.html'" class="backButton">Voltar</button>
                 </div>
             </form>
         </div>
     </div>
+    <script src="../js/script.js"></script>
+    <script src="../js/final.js"></script>
 </body>
-<script src="../js/script.js"></script>
+</html>
